@@ -1,3 +1,7 @@
+Branch: defrosted
+Purpose: bug fixes and usability/security improvements on frozen
+[https://github.com/osComma/Responsive-osCommerce/tree/defrosted](https://github.com/osComma/Responsive-osCommerce/tree/defrosted)
+
 osCommerce 2.3.4.1 CE
 =====================
 osCommerce
