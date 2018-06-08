@@ -25,7 +25,7 @@
   }
 
   function quote_xe_currency($to, $from = DEFAULT_CURRENCY) {
-    $page = file('http://www.xe.net/ucc/convert.cgi?Amount=1&From=' . $from . '&To=' . $to);
+    $page = file('http://www.xe.com/currencyconverter/convert/?Amount=1&From=' . $from . '&To=' . $to); 
 
     $match = array();
 
