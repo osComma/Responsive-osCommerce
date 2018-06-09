@@ -25,7 +25,7 @@
   }
 
   function quote_xe_currency($to, $from = DEFAULT_CURRENCY) {
-    $page = file('http://www.xe.net/ucc/convert.cgi?Amount=1&From=' . $from . '&To=' . $to);
+    $page = file('http://www.xe.com/currencyconverter/convert/?Amount=1&From=' . $from . '&To=' . $to); 
 
     $match = array();
 
@@ -41,7 +41,7 @@
   function quote_fixer_currency($to, $from = DEFAULT_CURRENCY) {
     if ($to == $from) return 1;
     
-    $ch = curl_init('http://api.fixer.io/latest?base=' . $from . '&symbols=' . $to);
+    $ch = curl_init('http://data.fixer.io/api/latest?access_key=' . FIXER_ACCESS_KEY . '&base=' . $from . '&symbols=' . $to);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $data = curl_exec($ch); 
     curl_close($ch); 

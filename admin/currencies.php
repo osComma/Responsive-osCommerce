@@ -227,7 +227,11 @@ function updateForm() {
   if (empty($action)) {
 ?>
                   <tr>
-                    <td class="smallText"><?php if (CURRENCY_SERVER_PRIMARY) { echo tep_draw_button(IMAGE_UPDATE_CURRENCIES, 'refresh', tep_href_link('currencies.php', 'page=' . $_GET['page'] . '&cID=' . $cInfo->currencies_id . '&action=update')); } ?></td>
+                    <td class="smallText"><?php if ( (CURRENCY_SERVER_PRIMARY == 'fixer' && FIXER_ACCESS_KEY) || CURRENCY_SERVER_PRIMARY != 'fixer' ) { 
+                      echo tep_draw_button(IMAGE_UPDATE_CURRENCIES, 'refresh', tep_href_link('currencies.php', 'page=' . $_GET['page'] . '&cID=' . $cInfo->currencies_id . '&action=update'));
+                    } else {
+                      echo WARNING_FIXER_ACCESS_KEY;
+                    } ?></td>
                     <td class="smallText" align="right"><?php echo tep_draw_button(IMAGE_NEW_CURRENCY, 'plus', tep_href_link('currencies.php', 'page=' . $_GET['page'] . '&cID=' . $cInfo->currencies_id . '&action=new')); ?></td>
                   </tr>
 <?php
