@@ -350,12 +350,6 @@
   require('includes/functions/whos_online.php');
   tep_update_whos_online();
 
-// include the password crypto functions
-  require('includes/functions/password_funcs.php');
-
-// include validation functions (right now only email address)
-  require('includes/functions/validations.php');
-
 // split-page-results
   require('includes/classes/split_page_results.php');
 
