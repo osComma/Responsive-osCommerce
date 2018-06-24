@@ -14,9 +14,10 @@
   define('PAGE_PARSE_START_TIME', microtime());
 
 // set the level of error reporting
-  error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_DEPRECATED);
-  ini_set('display_errors','0'); 
-  
+  error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT);
+//  ini_set('display_errors','0'); 
+  error_reporting(E_ALL & ~E_NOTICE);
+  ini_set('display_errors','on');
 // check support for register_globals
   if (function_exists('ini_get') && (ini_get('register_globals') == false) && (PHP_VERSION < 4.3) ) {
     exit('Server Requirement Error: register_globals is disabled in your PHP configuration. This can be enabled in your php.ini configuration file or in the .htaccess file in your catalog directory. Please use PHP 4.3+ if register_globals cannot be enabled on the server.');
@@ -348,6 +349,12 @@
 // include the who's online functions
   require('includes/functions/whos_online.php');
   tep_update_whos_online();
+
+// include the password crypto functions
+  require('includes/functions/password_funcs.php');
+
+// include validation functions (right now only email address)
+  require('includes/functions/validations.php');
 
 // split-page-results
   require('includes/classes/split_page_results.php');
