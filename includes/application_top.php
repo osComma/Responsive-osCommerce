@@ -31,7 +31,7 @@
 
   if (DB_SERVER == '') {
     if (is_dir('install')) {
-      header('Location: install/index.php');
+      header('Location: install/index.php', true, 302);
       exit;
     }
   }
